@@ -1,3 +1,7 @@
+Install
+=======
+<code>npm install node-red-wfwatch</code>
+
 About
 =====
 * Simple node that watches a folder, and sends events when files are added/created/changed/deleted.
