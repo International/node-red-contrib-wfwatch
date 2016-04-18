@@ -1,0 +1,22 @@
+{
+    "name": "node-red-wfwatch",
+    "version": "0.0.1",
+    "description": "Windows folder watch",
+    "dependencies": {
+        "watchr" : "2.4.13"
+    },
+    "node-red" : {
+        "nodes": {
+            "wfwatch": "wfwatch/node-red-wfwatch.js"
+        }
+    },
+    "keywords": [
+        "node-red", "windows", "folder watch", "directory"
+    ],
+    "repository" : {
+      "type" : "git",
+      "url" : "https://github.com/International/node-red-wfwatch"
+    },
+    "author": "George Opritescu",
+    "license": "MIT"
+}
