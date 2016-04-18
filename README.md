@@ -1,6 +1,6 @@
 Install
 =======
-<code>npm install node-red-wfwatch</code>
+<code>npm install node-red-contrib-wfwatch</code>
 
 About
 =====
