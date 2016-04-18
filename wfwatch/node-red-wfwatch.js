@@ -5,6 +5,14 @@ module.exports = function(RED) {
     RED.nodes.createNode(this,config);
     this.folder = config.folder;
 
+    this.startListening();
+  }
+
+  WFWatch.prototype.showListening = function() {
+    this.status({fill:"green", shape: "ring", text: "watching folder"})
+  }
+
+  WFWatch.prototype.startListening = function() {
     var node = this;
     watchr.watch({
       outputLog: false,
@@ -14,7 +22,7 @@ module.exports = function(RED) {
           if (err) {
             node.status({fill:"red",shape:"ring",text:"error watching folder"});
           } else {
-            node.status({fill:"green", shape: "ring", text: "watching folder"});
+            node.showListening()
           }
         },
         change: function(changeType,filePath,fileCurrentStat,filePreviousStat){
@@ -23,6 +31,11 @@ module.exports = function(RED) {
             filePath: filePath
           }
           node.send({payload: payload})
+          var notificationText = "notified:" + filePath;
+          node.status({fill:"purple", shape: "ring", text: notificationText});
+          setTimeout(() => {
+            node.showListening()
+          }, 500)
         }
       },
       next: function(err,watchers){
